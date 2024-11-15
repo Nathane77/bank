@@ -12,7 +12,7 @@ class Titulaire {
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->date = new Datetime($date);
-        $this->age = new DateTime('today')sub(new DateInterval($this->getDate));
+        // $this->age = new DateTime('today')sub(new DateInterval($this->getDate));
         $this->ville = $ville;
         $this->comptes = [];
     }

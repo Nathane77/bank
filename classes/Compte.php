@@ -1,11 +1,11 @@
 <?php
 class Compte{
     private string $libelle;
-    private int $solde;
+    private float $solde;
     private string $devise;
     private Titulaire $titulaire;
 
-    public function __construct(string $libelle, int $solde, string $devise, Titulaire $titulaire){
+    public function __construct(string $libelle, float|string $solde, string $devise, Titulaire $titulaire){
         $this->libelle = $libelle;
         $this->solde = $solde;
         $this->devise = $devise;
@@ -52,13 +52,29 @@ class Compte{
 
     public function getLibellé()
     {
-        return $this->libellé;
+        return $this->libelle;
     }
 
-    public function setLibellé($libellé)
+    public function setLibellé($libelle)
     {
-        $this->libellé = $libellé;
+        $this->libelle = $libelle;
 
         return $this;
     }
+    public function credit($solde){
+         $this->solde += $solde;
+    }
+    public function debit($debit){
+        $this->solde -= $debit;
+   }
+   public function transfer($transfer,$giver,$given){
+    if($this->solde < $transfer){
+        echo "vous n'avez pas assez de fond pour faire un virement";
+    }
+    elseif($this->solde >= $transfer){
+        $giver->debit($transfer);
+        $given->credit($transfer); 
+        
+    }
+   }
 }
