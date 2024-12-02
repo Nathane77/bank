@@ -10,8 +10,9 @@ This exercise is here to learn how to use `OOP` or `Object Oriented Programming`
 ## **Main function of the project**
 
 
-This function is made to transfer money from one account to another, first it checks if the account **giving** the money has **less** then the transfered amount,
-if he doesn't it will show a message saying "you don't have enough fund to make a transfer".
+This function is made to transfer money from one account to another,
+first it checks if the account **giving** the money has **less** then the transfered amount,
+if he does it will show a message saying "you don't have enough fund to make a transfer".
 ```php
     public function transfer($transfer,$given){
     if($this->solde < $transfer){
