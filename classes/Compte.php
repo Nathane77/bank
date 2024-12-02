@@ -88,12 +88,12 @@ class Compte{
     }
 
     //transfer l'argent d'un compte a un autre
-    public function transfer($transfer,$giver,$given){
+    public function transfer($transfer, $given){
     if($this->solde < $transfer){
         echo "vous n'avez pas assez de fond pour faire un virement";
     }
     elseif($this->solde >= $transfer){
-        $giver->debit($transfer);
+        $this->debit($transfer);
         $given->credit($transfer);   
     }
     }
